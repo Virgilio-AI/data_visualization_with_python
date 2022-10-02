@@ -1,0 +1,5 @@
+
+venv
+*.ipynb
+*.ipynb_checkpoints
+resources
