@@ -198,4 +198,6 @@ plt.show()
 df.plot(subplots=True,sharex = False,layout=(1,4),figsize=(12,5))
 plt.show()
 
+df.plot(subplots=True)
+plt.show()
 
