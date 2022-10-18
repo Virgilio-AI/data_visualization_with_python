@@ -327,13 +327,13 @@ sns.catplot(x = 'sex', y = 'fare', data = titanic, kind = 'box', col = 'pclass')
 sns.catplot(x = 'sex', y = 'fare', data = titanic, kind = 'boxen', col = 'pclass')
 
 # %%
-sns.catplot(x = 'pclass', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 12, height = 6)
+sns.catplot(x = 'pclass', y = 'fare', data = titanic, kind = 'violin', col = 'sex',s = 12, height = 6)
 
 # %%
-sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 12, height = 6)
+sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'violin', col = 'sex',s = 12, height = 6)
 
 # %%
-sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 12, height = 6,  alpha = 0.5)
+sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'violin', col = 'pclass',s = 12, height = 6,  alpha = 0.5)
 
 
 # %%
@@ -392,13 +392,13 @@ sns.catplot(x = 'sibsp', y = 'survived', kind = 'point', data = titanic, hue = '
 sns.catplot(x = 'sibsp', y = 'survived', kind = 'point', data = titanic, col = 'pclass')
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 10, height = 6)
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'violin', col = 'sex',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 10, height = 6)
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'violin', col = 'pclass',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex',s = 10, height = 6)
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'violin', col = 'pclass', row = 'sex',s = 10, height = 6)
 
 # %% [markdown]
 # # Parch 
@@ -432,16 +432,16 @@ sns.catplot(x = 'parch', y = 'survived', data = titanic, kind = 'bar')
 sns.catplot(x = 'parch', y = 'survived', data = titanic, kind = 'bar', hue = 'sex')
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm',s = 10, height = 6,aspect = 25)
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'violin',s = 10, height = 6,aspect = 25)
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 10, height = 6)
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'violin', col = 'sex',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 10, height = 7,aspect = 2)
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'violin', col = 'pclass',s = 10, height = 7,aspect = 2)
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex',s = 10, height = 6)
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'violin', col = 'pclass', row = 'sex',s = 10, height = 6)
 
 # %% [markdown]
 # # Embarked 
@@ -503,3 +503,4 @@ sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, col = 'parc
 
 # %%
 sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, col = 'parch' )
+
