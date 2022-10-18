@@ -68,7 +68,7 @@ titanic.isnull().sum()
 sns.heatmap(titanic.isnull(), cmap = 'viridis', cbar = True)
 
 # %%
-corrmat = titanic.corr()
+corrmat = titanic.corr(numeric_only = True)
 corrmat
 
 # %%
@@ -105,7 +105,6 @@ sns.displot(x = 'age',data = titanic, kde = True)
 plt.tight_layout()
 plt.show()
 
-
 # %% [markdown]
 # # Survived
 
@@ -130,10 +129,6 @@ titanic['survived'].value_counts().plot.pie(autopct = '%1.2f%%')
 explode = [0, 0.1]
 titanic['survived'].value_counts().plot.pie(explode = explode, autopct = '%1.2f%%')
 
-# %%
-
-# %%
-
 # %% [markdown]
 # # PClass
 
@@ -142,8 +137,6 @@ titanic['pclass'].value_counts()
 
 # %%
 titanic.groupby(['pclass', 'survived'])['survived'].count()
-
-# %%
 
 # %%
 sns.countplot(x = 'pclass', data = titanic)
@@ -203,14 +196,10 @@ sns.catplot(x = 'sex', y = 'survived', kind = 'bar', data = titanic)
 sns.catplot(x = 'sex', y = 'survived', kind = 'bar', data = titanic, hue = 'pclass')
 
 # %%
-
-# %%
 sns.catplot(x = 'sex', y = 'survived', kind = 'bar', data = titanic, col = 'pclass')
 
 # %%
 sns.catplot(x = 'sex', y = 'survived', kind = 'bar', data = titanic, row = 'pclass')
-
-# %%
 
 # %%
 sns.catplot(x = 'pclass', y = 'survived', kind = 'bar', data = titanic, col = 'sex')
@@ -255,18 +244,16 @@ plt.xlabel('Age')
 plt.show()
 
 # %%
-sns.distplot(titanic['age'])
+sns.displot(data = titanic,x = 'age', kde = True)
 
 # %%
-sns.distplot(titanic['age'], hist = False)
+sns.displot(data = titanic, x = 'age', kde = True)
 
 # %%
-sns.kdeplot(titanic['age'], shade = True)
+sns.kdeplot(titanic['age'], fill = True)
 
 # %%
 sns.catplot(x = 'sex', y = 'age', data = titanic, kind = 'box')
-
-# %%
 
 # %%
 sns.catplot(x = 'sex', y = 'age', data = titanic, kind = 'box', hue = 'pclass')
@@ -287,18 +274,18 @@ sns.catplot(x = 'pclass', y = 'age', data = titanic, kind = 'violin', hue = 'sex
 sns.catplot(x = 'pclass', y = 'age', data = titanic, kind = 'violin', col = 'sex')
 
 # %%
-sns.catplot(x = 'pclass', y = 'age', kind = 'swarm', data = titanic)
+sns.catplot(x = 'pclass', y = 'age', kind = 'swarm', data = titanic, s = 10, height = 6)
+
+# %%
+sns.catplot(x = 'pclass', y = 'age', kind = 'swarm', data = titanic, col = 'sex',s = 10, height = 6)
+
+# %%
+sns.catplot(x = 'survived', y = 'age', data = titanic, kind = 'swarm', col = 'sex',s = 10, height = 6)
 
 # %%
 
 # %%
-sns.catplot(x = 'pclass', y = 'age', kind = 'swarm', data = titanic, col = 'sex')
-
-# %%
-sns.catplot(x = 'survived', y = 'age', data = titanic, kind = 'swarm', col = 'sex')
-
-# %%
-sns.catplot(x = 'survived', y = 'age', data = titanic, kind = 'swarm', row = 'sex', col = 'pclass')
+sns.catplot(x = 'survived', y = 'age', data = titanic, kind = 'swarm', row = 'sex', col = 'pclass',s = 10, height = 6)
 
 # %% [markdown]
 # # Fare
@@ -320,12 +307,12 @@ sns.catplot(x = 'survived', y = 'age', data = titanic, kind = 'swarm', row = 'se
 titanic['fare'].hist(bins = 40, color = 'orange')
 
 # %%
-sns.distplot(titanic['fare'])
+sns.displot(data = titanic, x = 'fare', kde = True)
 plt.xlabel('Fare')
 plt.show()
 
 # %%
-sns.kdeplot(titanic['fare'], shade = True)
+sns.kdeplot(titanic['fare'], fill = True)
 
 # %%
 sns.catplot(x = 'sex', y = 'fare', data = titanic, kind = 'box')
@@ -340,26 +327,23 @@ sns.catplot(x = 'sex', y = 'fare', data = titanic, kind = 'box', col = 'pclass')
 sns.catplot(x = 'sex', y = 'fare', data = titanic, kind = 'boxen', col = 'pclass')
 
 # %%
-sns.catplot(x = 'pclass', y = 'fare', data = titanic, kind = 'swarm', col = 'sex')
+sns.catplot(x = 'pclass', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 12, height = 6)
 
 # %%
-sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'sex')
+sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 12, height = 6)
 
 # %%
-sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass')
+sns.catplot(x = 'survived', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 12, height = 6,  alpha = 0.5)
+
 
 # %%
 sns.jointplot(x = 'age', y = 'fare', data = titanic)
-
-# %%
 
 # %%
 sns.jointplot(x = 'age', y = 'fare', data = titanic, kind = 'kde')
 
 # %%
 sns.relplot(x = 'age', y = 'fare', data = titanic, row = 'sex', col = 'pclass')
-
-# %%
 
 # %% [markdown]
 # # SibSp
@@ -390,11 +374,7 @@ sns.countplot(x = 'sibsp', data = titanic, hue = 'survived')
 sns.catplot(x = 'sibsp', y = 'survived', kind = 'bar', data = titanic)
 
 # %%
-
-# %%
 sns.catplot(x = 'sibsp', y = 'survived', kind = 'bar', data = titanic, hue = 'sex')
-
-# %%
 
 # %%
 sns.catplot(x = 'sibsp', y = 'survived', kind = 'bar', data = titanic, col = 'sex')
@@ -412,15 +392,13 @@ sns.catplot(x = 'sibsp', y = 'survived', kind = 'point', data = titanic, hue = '
 sns.catplot(x = 'sibsp', y = 'survived', kind = 'point', data = titanic, col = 'pclass')
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'sex')
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass')
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex')
-
-# %%
+sns.catplot(x = 'sibsp', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex',s = 10, height = 6)
 
 # %% [markdown]
 # # Parch 
@@ -448,30 +426,22 @@ sns.countplot(x = 'parch', data = titanic)
 sns.countplot(x = 'parch', data = titanic, hue = 'sex')
 
 # %%
-
-# %%
 sns.catplot(x = 'parch', y = 'survived', data = titanic, kind = 'bar')
 
 # %%
 sns.catplot(x = 'parch', y = 'survived', data = titanic, kind = 'bar', hue = 'sex')
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm')
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm',s = 10, height = 6,aspect = 25)
 
 # %%
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'sex',s = 10, height = 6)
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'sex')
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass',s = 10, height = 7,aspect = 2)
 
 # %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass')
-
-# %%
-
-# %%
-sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex')
-
-# %%
+sns.catplot(x = 'parch', y = 'fare', data = titanic, kind = 'swarm', col = 'pclass', row = 'sex',s = 10, height = 6)
 
 # %% [markdown]
 # # Embarked 
@@ -507,12 +477,6 @@ sns.catplot(x = 'embarked', y = 'survived', kind = 'bar', data = titanic, hue = 
 # %%
 sns.catplot(x = 'embarked', y = 'survived', kind = 'bar', data = titanic, col = 'sex')
 
-# %%
-
-# %%
-
-# %%
-
 # %% [markdown]
 # # Who
 
@@ -532,14 +496,10 @@ sns.countplot(x = 'who', data = titanic, hue = 'survived')
 sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic)
 
 # %%
-
-# %%
 sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, hue = 'pclass')
-
-# %%
 
 # %%
 sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, col = 'parch')
 
 # %%
-sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, col = 'parch', col_wrap=4)
+sns.catplot(x = 'who', y = 'survived', kind = 'bar', data = titanic, col = 'parch' )
