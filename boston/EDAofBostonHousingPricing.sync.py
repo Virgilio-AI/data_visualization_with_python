@@ -24,42 +24,18 @@
 # # Data Preparation
 #
 
-# %%
-# !pip install statsmodels
 
 # %%
 # from sklearn.ensemble import RandomForestRegressor # random forest regressor
 # from sklearn.model_selection import cross_val_score # the cross validation module
 
+
+# %%
 # usefull
 import pickle # for saving the model
 import os # for saving the model
 
 
-# Setup feedback system
-# from learntools.core import binder # the binder
-# binder.bind(globals())
-# from learntools.feature_engineering_new.ex2 import * # for importing all in feature engineering
-
-
-
-# import matplotlib.pyplot as plt # for importing matplotlib
-# import numpy as np # for importing numpy
-# import pandas as pd # for importing pandas
-# import seaborn as sns # seaborn is used to plot
-# from numpy.random import randint
-# from matplotlib.patches import Polygon
-# from matplotlib.animation import FuncAnimation
-
-# import plotly.offline as py # for importing plotly
-# import cufflinks as cf
-# py.init_notebook_mode(connected=True) # do not delete for plotly to work correctly
-# cf.go_offline() # do not delete for plotly to work correctly
-
-# %%
-#
-import warnings
-warnings.filterwarnings('ignore')
 
 # %%
 import numpy as np
@@ -133,12 +109,6 @@ print(plt.style.available)
 # %%
 len(plt.style.available)
 
-# %%
-for style in plt.style.available:
-    plt.style.use(style)
-    data_desc.loc['mean'].plot.bar()
-    plt.title(style)
-    plt.savefig('plots/' + style + ".png")
 
 # %%
 plt.style.use('ggplot')
@@ -416,3 +386,4 @@ sns.lmplot(x = 'RM', y = 'Price', data = data, col = 'CHAS', order = 2)
 
 # %%
 sns.lmplot(x = 'CHAS', y = 'Price', data = data, x_estimator=np.mean)
+
